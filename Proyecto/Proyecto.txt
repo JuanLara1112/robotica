@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: #D5F5E3;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .login-tab {
+      max-width: 450px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab {
+      display: flex;
+      justify-content: space-around;
+      background-color: #4CAF50;
+      border-radius: 5px;
+    }
+
+    .tab button {
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .tab button:hover {
+      background-color: #45a049;
+    }
+
+    .tabcontent {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    select {
+      width: 90%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    input[type="submit"],
+    button {
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    input[type="submit"]:hover,
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="logo">
+    <img src="evento_de_concurso_logo.png" alt="Evento de Concurso Logo">
+  </div>
+
+  <div class="login-tab">
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'login')">Iniciar sesión</button>
+      <button class="tablinks" onclick="openTab(event, 'register')">Registrarse</button>
+      <button class="tablinks" onclick="openTab(event, 'add-team')">Añadir Equipo</button>
+      <button class="tablinks" onclick="openTab(event, 'events')">Eventos</button>	    
+    </div>
+
+    <div id="login" class="tabcontent">
+      <h2>Iniciar sesión</h2>
+      <form>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Iniciar sesión">
+      </form>
+    </div>
+
+
+    <div id="register" class="tabcontent">
+  <h2>Registrarse</h2>
+  <form>
+    <label for="role">Rol:</label>
+    <select id="role" name="role" required>
+      <option value="Juez">Juez</option>
+      <option value="Asesor">Asesor</option>
+    </select><br><br>
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="email">Correo:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <label for="organization">Organismo:</label>
+    <input type="text" id="organization" name="organization" required><br><br>
+    <label for="academic-level">Nivel Académico:</label>
+    <input type="text" id="academic-level" name="academic-level" required><br><br>
+    <input type="submit" value="Registrarse">
+  </form>
+</div>
+
+
+    <div id="add-team" class="tabcontent">
+  <h2>Añadir Equipo</h2>
+  <form>
+    <label for="team-name">Nombre del Equipo:</label>
+    <input type="text" id="team-name" name="team-name" required><br><br>
+    <label for="student-name">Nombre del Alumno:</label>
+    <input type="text" id="student-name" name="student-name" required><br><br>
+    <label for="team-category">Categoría del Equipo:</label>
+    <select id="team-category" name="team-category" required>
+      <option value="Categoria1">Primaria</option>
+      <option value="Categoria2">Secundaria</option>
+      <option value="Categoria3">Preparatoria</option>
+      <option value="Categoria4">Universidad</option>
+      <!-- Agrega más opciones según sea necesario -->
+    </select><br><br>
+    <input type="submit" value="Añadir Equipo">
+    <button type="button" id="add-student-button" onclick="addStudent()">Añadir Alumno</button>
+  </form>
+</div>
+
+
+<div id="events" class="tabcontent">
+      <h2>Eventos</h2>
+      <form>
+        <label for="event-selection">Selecciona un evento:</label>
+        <select id="event-selection" name="event-selection">
+          <option value="evento1">Evento 1</option>
+          <option value="evento2">Evento 2</option>
+          <option value="evento3">Evento 3</option>
+          <!-- Agrega más eventos según sea necesario -->
+        </select><br><br>
+        <!-- Otros elementos relacionados con eventos aquí -->
+      </form>
+  </div>
+</div>
+
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+	function addStudent() {
+    
+  }
+  </script>
+</body>
+</html>
